@@ -1,4 +1,5 @@
 ### Simple API
+[![Build Status](https://travis-ci.com/brandonslp/simple-api.svg?branch=master)](https://travis-ci.com/brandonslp/simple-api)
 ## Description
 A simple Api development with:
 - Node js 6.10
