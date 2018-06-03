@@ -4,6 +4,7 @@ node_js:
 env:
 - LAMBDA_FUNCTION=create-person
 - LAMBDA_FUNCTION=get-all-persons
+- LAMBDA_FUNCTION=get-person
 deploy:
   provider: lambda
   function_name: $LAMBDA_FUNCTION
