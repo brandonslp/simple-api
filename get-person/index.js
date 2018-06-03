@@ -20,7 +20,9 @@ exports.handler = async(function(event, context, callback){
 	let output = {};
 	try{
 		console.log('INPUT: ', JSON.stringify(event));
+		console.log('pathParameters ->', event.pathParameters);
 		const id = event.pathParameters.id;
+		console.log('id -> ', id);
 		let personDao = new PersonDao();
 		const result = await(personDao.find(id));
 		if(result && result._id){
