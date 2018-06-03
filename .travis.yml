@@ -12,6 +12,6 @@ deploy:
   role: $LAMBDA_ARN
   runtime: "nodejs6.10"
   handler_name: "handler"
-  imeout: 15
+  timeout: 15
   memory_size: 1024
 script: cd $LAMBDA_FUNCTION && npm install && npm test
