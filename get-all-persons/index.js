@@ -3,6 +3,7 @@ const Utils = common.Utils;
 const async = require('asyncawait/async');
 const await = require('asyncawait/await');
 const PersonDao = require('./dao/person-dao').PersonDao;
+const _ = require('lodash');
 
 
 let toResponse = function(code, message){
@@ -24,7 +25,14 @@ exports.handler = async(function(event, context, callback){
 		const result = await(personDao.getAll());
 		console.log('MONGO RESULT: ', result);
 		output = toResponse(200, {
-			data: result
+			data: _.map(result, (r)=>{
+				return {
+					"id" : r.id,
+					"name" : r.name,
+					"surname" : r.surname,
+					"nickname" : r.nickname
+				};
+			})
 		});
 	}catch(exc){
 		console.log(exc);

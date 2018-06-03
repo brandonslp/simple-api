@@ -23,6 +23,8 @@ exports.handler = async(function(event, context, callback){
 		console.log('INPUT: ', JSON.stringify(event));
 		let personDao = new PersonDao();
 		const result = await(personDao.find(id));
+		if(result._id)
+			delete result._id;
 		console.log('MONGO RESULT: ', result);
 		output = toResponse(200, result);
 	}catch(exc){
