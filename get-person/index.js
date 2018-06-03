@@ -28,11 +28,11 @@ exports.handler = async(function(event, context, callback){
 			console.log('MONGO RESULT: ', result);
 			output = toResponse(200, result);
 		}else
-			output = toResponse(404, "Person not found");
+			output = toResponse(404, {"error":"Person not found"});
 	}catch(exc){
 		console.log(exc);
 		console.log("Exception: "+exc.message);
-		output = toResponse(500, exc.message);
+		output = toResponse(500, {"error": exc.message});
 	}finally{
 		console.log('OUTPUT: ', JSON.stringify(output));
 		context.succeed(output);

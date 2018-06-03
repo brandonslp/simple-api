@@ -46,7 +46,7 @@ exports.handler = async(function(event, context, callback){
 		if(exc.code === 11000)
 			output = toResponse(400, {"error": "Nickname already exists."});
 		else
-			output = toResponse(500, exc.message);
+			output = toResponse(500, {"error": exc.message});
 	}finally{
 		console.log('OUTPUT: ', JSON.stringify(output));
 		context.succeed(output);
