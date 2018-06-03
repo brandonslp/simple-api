@@ -50,9 +50,9 @@ describe('Suite test: Create person', ()=>{
 					const body = JSON.parse(json.body);
         	expect(json.statusCode).to.equal(200);
         	expect(body).to.have.property('id').to.be.a('number').to.be.equal(1);
-					expect(body).to.have.property('name').to.be.an('string').to.be.equal("Juan");
-					expect(body).to.have.property('surname').to.be.an('string').to.be.equal("Buendia");
-					expect(body).to.have.property('nickname').to.be.an('string').to.be.equal("juanito2");
+					expect(body).to.have.property('name').to.be.a('string').to.be.equal("Juan");
+					expect(body).to.have.property('surname').to.be.a('string').to.be.equal("Buendia");
+					expect(body).to.have.property('nickname').to.be.a('string').to.be.equal("juanito2");
 				}
 			}).then(()=>done());
 		}catch(err){
@@ -75,7 +75,7 @@ describe('Suite test: Create person', ()=>{
 					succeed: function(json){
 						const body = JSON.parse(json.body);
 						expect(json.statusCode).to.equal(400);
-						expect(body).to.have.property('error').to.be.an('string').to.be.equal("Nickname already exists.");
+						expect(body).to.have.property('error').to.be.a('string').to.be.equal("Nickname already exists.");
 					}
 				}).then(()=>done());
 		}catch(err){
