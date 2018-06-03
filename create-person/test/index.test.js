@@ -12,7 +12,6 @@ dbConnector.insert = function(collection, d, indexes) {
 		throw error;
 	}
 	else{
-		d.id = 1;
 		return { 
 			insertedCount: 1,
 			result: { ok: 1, n: 1 },
@@ -21,6 +20,14 @@ dbConnector.insert = function(collection, d, indexes) {
 			[d] 
 		};
 	}
+};
+
+dbConnector.findAndModify = function(collection, query, sort, set, options) {
+	return { 
+		lastErrorObject: { updatedExisting: true, n: 1 },
+		value: { _id: 'personId', seq: 0 },
+		ok: 1 
+	};
 };
 
 
