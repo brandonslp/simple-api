@@ -20,14 +20,12 @@ exports.handler = async(function(event, context, callback){
 	let output = {};
 	try{
 		console.log('INPUT: ', JSON.stringify(event));
-		console.log('pathParameters ->', event.pathParameters);
 		const id = event.pathParameters.id;
-		console.log('id -> ', id);
 		let personDao = new PersonDao();
 		const result = await(personDao.find(id));
+		console.log('MONGO RESULT: ', result);
 		if(result && result._id){
 			delete result._id;
-			console.log('MONGO RESULT: ', result);
 			output = toResponse(200, result);
 		}else
 			output = toResponse(404, {"error":"Person not found"});
