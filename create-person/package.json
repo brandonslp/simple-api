@@ -1,0 +1,27 @@
+{
+  "name": "create-person",
+  "version": "1.0.0",
+  "description": "Simple-api create-person",
+  "main": "index.js",
+  "scripts": {
+    "test": "ENV=test mocha --exit test/*.test.js"
+  },
+  "keywords": [
+    "lambda",
+    "travis",
+    "aws",
+    "mondb",
+    "api-gateway"
+  ],
+  "author": "brandonslp",
+  "license": "ISC",
+  "dependencies": {
+    "asyncawait": "^1.0.6",
+    "common": "file:./../common"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^1.7.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  }
+}

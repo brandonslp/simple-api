@@ -1,0 +1,16 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "Module common for simple-api",
+  "main": "index.js",
+  "author": "brandonslp",
+  "dependencies": {
+    "asyncawait": "^1.0.6",
+    "jsonschema": "^1.2.4",
+    "mongodb": "^3.0.5"
+  },
+  "optionalDependencies": {
+    "aws-sdk": "^2.238.1",
+    "mongo-mock": "git+https://github.com/brandonslp/mongo-mock.git"
+  }
+}
