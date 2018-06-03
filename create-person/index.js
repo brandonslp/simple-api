@@ -30,7 +30,12 @@ exports.handler = async(function(event, context, callback){
 				body.id = id.value.seq+1;
 				const result = await(personDao.create(body));
 				console.log('MONGO RESULT: ', result);
-				output = toResponse(200, body);
+				output = toResponse(200, {
+					"id": body.id,
+					"name": body.name,
+					"surname": body.surname,
+					"nickname": body.nickname
+				});
 			}
 			else
 				throw new Error("Autoincrement id error");			
