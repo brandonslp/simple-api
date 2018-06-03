@@ -24,4 +24,10 @@ module.exports.PersonDao = function() {
 		];
 		return await(dbConnector.insert(modelName,person,index));
 	});
+	this.sequenceNextValue = async(function() {
+		return await(dbConnector.findAndModify('counters',
+		{ "_id": "personId" },
+		{},
+		{ $inc: { seq: 1 } }));
+	});
 };
