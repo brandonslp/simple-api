@@ -19,14 +19,16 @@ exports.handler = async(function(event, context, callback){
 	context.callbackWaitsForEmptyEventLoop = false;
 	let output = {};
 	try{
-		const id = event.pathParameters.id;
 		console.log('INPUT: ', JSON.stringify(event));
+		const id = event.pathParameters.id;
 		let personDao = new PersonDao();
 		const result = await(personDao.find(id));
-		if(result._id)
+		if(result && result._id){
 			delete result._id;
-		console.log('MONGO RESULT: ', result);
-		output = toResponse(200, result);
+			console.log('MONGO RESULT: ', result);
+			output = toResponse(200, result);
+		}else
+			output = toResponse(404, "Person not found");
 	}catch(exc){
 		console.log(exc);
 		console.log("Exception: "+exc.message);
