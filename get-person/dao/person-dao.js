@@ -7,7 +7,7 @@ module.exports.PersonDao = function() {
 	let modelName = "persons";
 	this.find = async(function(id) {
 		return await(dbConnector.findOne(modelName,{
-			"id": id
+			"id": Number(id)
 		}));
 	});
 };
